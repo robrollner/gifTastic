@@ -49,13 +49,16 @@ $(document).ready(function() {
             $('.image').html('<img class="img-thumbnail" src="' + stillImage + ' "data-state="still"' + '>');
         });
 
-        $(".img-thumbnail").on("click", function() {
-            // var state = $(this).attr('data-state');
-            // console.log(state);
-            if (state === still) {
-                $(this).html('<img class="img-thumbnail" src"' + gifImage + '>');
+        $("img").on({
+            'click': function() {
+                var src = ($(this).attr('src') === stillImage),
+                    stillImage, 
+                    gifImage;
+                $(this).attr('src', src);
+
             }
         });
+
     });
 
 
