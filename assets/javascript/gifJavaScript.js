@@ -35,7 +35,7 @@ $(document).ready(function() {
 
         var person = $(this).attr("data-person");
         //API calls retunrs 15 repsonses only 1 loads...
-        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + person + "&api_key=dc6zaTOxFJmzC&limit=15";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + person + "&api_key=dc6zaTOxFJmzC&limit=15";
         console.log(queryURL);
 	//calls giphy API
         $.get(queryURL).done(function(response) {
@@ -48,6 +48,8 @@ $(document).ready(function() {
             $('.rating').html('Rated: ' + results[0].rating);
         //loads still image with click of character button
             $('.image').html('<img class="img-thumbnail" src="' + stillImage + ' "data-state="still"' + '>');
+            $('.image').html('<img class="img-thumbnail" src="' + gifImage + ' "data-state="still"' + '>');
+
         });
         //supposed to add clicking event to image that changes src of still image to gif
         $(".img-thumbnail").on({
